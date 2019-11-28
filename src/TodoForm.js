@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { TodosContext } from './contexts/todos.context';
 import { Paper } from '@material-ui/core';
 import { TextField } from '@material-ui/core';
 import useInputState from './hooks/useInputState';
 
-export default function TodoForm({ addTodo }) {
+export default function TodoForm() {
   const [value, handleChange, reset] = useInputState('');
-
+  const { addTodo } = useContext(TodosContext);
   return (
     <Paper
       style={{
