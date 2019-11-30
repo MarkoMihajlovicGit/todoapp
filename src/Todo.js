@@ -12,7 +12,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import { ListItemSecondaryAction } from '@material-ui/core';
 
 export default function Todo({ task, completed, id }) {
-  const { removeTodo, toggleTodo } = useContext(TodosContext);
+  const { dispatch } = useContext(TodosContext);
   const [isEditing, toggle] = useToggleState(false);
 
   return (
@@ -29,7 +29,7 @@ export default function Todo({ task, completed, id }) {
             <Checkbox
               checked={completed}
               tabIndex={-1}
-              onClick={() => toggleTodo(id)}
+              onClick={() => dispatch({ type: 'TOGGLE', id: id })}
             ></Checkbox>
             <ListItemText
               style={{ textDecoration: completed ? 'line-through' : 'none' }}
@@ -43,7 +43,7 @@ export default function Todo({ task, completed, id }) {
               <IconButton
                 aria-label="delete"
                 // onClick={removeTodoAndStopPropagation}
-                onClick={() => removeTodo(id)}
+                onClick={() => dispatch({ type: 'REMOVE', id: id })}
               >
                 <DeleteIcon></DeleteIcon>
               </IconButton>
