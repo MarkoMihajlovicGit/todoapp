@@ -4,6 +4,7 @@ import reducer from '../reducers/todo.reducer';
 const initialTodos = [{ id: 1, completed: false, task: 'Walk a dog' }];
 
 export const TodosContext = createContext();
+export const DispatchContext = createContext();
 
 export function TodosProvider(props) {
   //todos
@@ -11,8 +12,10 @@ export function TodosProvider(props) {
   const [todos, dispatch] = useReducer(reducer, initialTodos);
 
   return (
-    <TodosContext.Provider value={{ todos, dispatch }}>
-      {props.children}
+    <TodosContext.Provider value={todos}>
+      <DispatchContext.Provider value={dispatch}>
+        {props.children}
+      </DispatchContext.Provider>
     </TodosContext.Provider>
   );
 }
