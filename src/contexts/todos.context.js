@@ -1,6 +1,7 @@
 import React, { createContext } from 'react';
 import reducer from '../reducers/todo.reducer';
 import useLocalStorageReducer from '../hooks/useLocalStorageReducer';
+
 const initialTodos = [{ id: 1, completed: false, task: 'Walk a dog' }];
 
 export const TodosContext = createContext();
