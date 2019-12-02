@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Small TodoApp built with hooks
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) & [Material-Ui](https://github.com/mui-org/material-ui).
 
 ## Available Scripts
 
